@@ -11,7 +11,7 @@ seurat_Heatmap(count, genematrix, ssGSEA_result, filename)
 
 \item{genematrix}{a data frame with cell types as column names .}
 
-\item{ssGSEA_result}{a data frame , scImmuCC return result .}
+\item{ssGSEA_result}{a data frame , scImmuCC1.1 return result .}
 
 \item{filename}{custom file name， character .}
 }
