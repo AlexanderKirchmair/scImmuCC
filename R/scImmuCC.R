@@ -45,7 +45,7 @@ scImmuCC <- function(count, Non_Immune=TRUE, resultsdir="", genelist_dir="data",
 
   # layer 2
   layer2_celltypes = intersect(cell_type, c("Tcell", "Bcell", "DC", "NK", "Macrophage", "ILC"))
-  results$Layer2 = bpapply(setNames(layer2_celltypes, layer2_celltypes), function(celltype){
+  results$Layer2 = bplapply(setNames(layer2_celltypes, layer2_celltypes), function(celltype){
     ix = ssGSEA_result[which(ssGSEA_result[,2]==celltype),][,1]
     run_scImmuCC(count[,ix], genelists[[paste0(celltype, "_genelist")]], paste0("Layer2_", celltype), resultsdir=resultsdir, min_cells=min_cells)
   })
@@ -55,7 +55,7 @@ scImmuCC <- function(count, Non_Immune=TRUE, resultsdir="", genelist_dir="data",
     genelists$CD4_T_genelist <- genelists$CD4_genelist
     genelists$CD8_T_genelist <- genelists$CD8_genelist
     layer3_celltypes = c("CD4_T", "CD8_T")
-    results$Layer3 = bpapply(setNames(layer3_celltypes, layer3_celltypes), function(celltype){
+    results$Layer3 = bplapply(setNames(layer3_celltypes, layer3_celltypes), function(celltype){
       ix = ssGSEA_result[which(ssGSEA_result[,2]==celltype),][,1]
       run_scImmuCC(count[,ix], genelists[[paste0(celltype, "_genelist")]], paste0("Layer3_", celltype), resultsdir=resultsdir, min_cells=min_cells)
     })
